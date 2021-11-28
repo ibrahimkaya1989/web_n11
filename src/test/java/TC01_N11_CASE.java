@@ -1,4 +1,5 @@
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class TC01_N11_CASE extends Initialize{
@@ -38,7 +39,7 @@ public class TC01_N11_CASE extends Initialize{
     public static void clickAddFavButton() throws InterruptedException {
 
         Assert.assertEquals(VD.getPageNumber(), CM.getTextXpath("activePage.xpath"));
-        VD.setProductName(CM.getTextLinkText("productText.xpath"));
+        VD.setProductName(CM.getTextXpath("productText.xpath"));
         CM.normalClickXpath("addFavButton.xpath");
 
     }

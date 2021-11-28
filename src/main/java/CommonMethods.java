@@ -22,7 +22,7 @@ public class CommonMethods extends Initialize {
         return value;
     }
 
-    public void normalClickXpath(String testObject) throws InterruptedException {
+    public void normalClickXpath(String testObject) {
         String[] splitTestObject = splitTestObject(pp.readPropertyFromElements(testObject));
         WebElement we = driver.findElement(By.xpath(splitTestObject[2]));
         //scrollPage(we.getLocation().x, we.getLocation().y);
@@ -71,10 +71,7 @@ public class CommonMethods extends Initialize {
         //scrollPage(we.getLocation().x, we.getLocation().y);
 
         if(we.isDisplayed() || we.isEnabled() || we.isSelected()){
-            //we.clear();
-            //we.click();
             we.sendKeys(key);
-            //we.sendKeys(Keys.ENTER);
         }
     }
 
@@ -84,10 +81,7 @@ public class CommonMethods extends Initialize {
         //scrollPage(we.getLocation().x, we.getLocation().y);
 
         if(we.isDisplayed() || we.isEnabled() || we.isSelected()){
-            //we.clear();
-            //we.click();
             we.sendKeys(key);
-            //we.sendKeys(Keys.ENTER);
         }
     }
 
@@ -105,7 +99,7 @@ public class CommonMethods extends Initialize {
         return we.getText();
     }
 
-    public void hoverOverElement(String testObject){
+    public void hoverOverElement(String testObject) throws InterruptedException {
         String[] splitTestObject = splitTestObject(pp.readPropertyFromElements(testObject));
         WebElement we = driver.findElement(By.xpath(splitTestObject[2]));
         //scrollPage(we.getLocation().x, we.getLocation().y);
@@ -115,6 +109,8 @@ public class CommonMethods extends Initialize {
         //Mouse hover WebElement
         actions.moveToElement(we).perform();
         System.out.println("Done Mouse hover on the Element from Menu");
+
+        Thread.sleep(5000);
     }
 
     public void scrollPage(int x, int y){
