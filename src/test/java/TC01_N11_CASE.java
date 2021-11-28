@@ -19,19 +19,17 @@ public class TC01_N11_CASE extends Initialize{
 
         CM.sendKeyId("username.id", pp.readProperty("test.email"));
         CM.sendKeyId("password.id", pp.readProperty("test.password"));
-        Thread.sleep(2000);
         CM.normalClickXpath("loginButton.xpath");
     }
 
     @Test(dependsOnMethods = "testLogin")
     public static void searchProduct() throws InterruptedException {
-        Thread.sleep(3000);
         CM.sendKeyId("searchBox.id", product);
         CM.normalClickXpath("searchButton.xpath");
     }
 
     @Test (dependsOnMethods = "searchProduct") //searchProduct
-    public static void clickSecondPage() throws InterruptedException {
+    public static void clickSecondPage() {
         VD.setPageNumber(CM.getTextLinkText("secondPage.linkText"));
         CM.normalClickLinkText("secondPage.linkText");
     }
@@ -40,8 +38,6 @@ public class TC01_N11_CASE extends Initialize{
     public static void clickAddFavButton() throws InterruptedException {
 
         Assert.assertEquals(VD.getPageNumber(), CM.getTextXpath("activePage.xpath"));
-
-        Thread.sleep(5000);
         VD.setProductName(CM.getTextLinkText("productText.xpath"));
         CM.normalClickXpath("addFavButton.xpath");
 
@@ -72,11 +68,9 @@ public class TC01_N11_CASE extends Initialize{
     @Test(dependsOnMethods = "removeFromMyFavorites")
     public static void validateActions() throws InterruptedException {
 
-        Thread.sleep(2000);
         Assert.assertEquals(CM.getTextXpath("productTextFromFav.xpath"), removeWarning);
         CM.normalClickXpath("removeOkText.xpath");
 
-        Thread.sleep(2000);
         Assert.assertEquals(CM.getTextXpath("watchListEmptyWarning.xpath"), wishListEmptyWarning);
     }
 }
