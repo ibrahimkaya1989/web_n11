@@ -1,15 +1,12 @@
-Feature: feature to test n11.com cart functionality
+Feature: feature to test n11.com wishList functionality
 
-  Scenario: cart functionality on n11
+  Scenario: wishList functionality on n11
 
-    Given user is on n11
-    When search the product and click Enter key
-    And select the product that want to buy
-    And click to button to add into cart
-    And User click the button to go to cart
-    And User check the product
-    And User search the product again
-    And Select same product by another merchant
-    And click to button to add into cart again
-    And go to the cart again
-    Then User Check the Cart
+    When user is on n11
+    And search the product and validate search result
+    And go to second page and validate page
+    And add into watch list
+    And go to watch list
+    And validate the product in watch list
+    And remove the product from watch list
+    Then validate the watch list

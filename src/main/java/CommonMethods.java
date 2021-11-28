@@ -91,6 +91,20 @@ public class CommonMethods extends Initialize {
         }
     }
 
+    public String getTextLinkText(String testObject){
+        String[] splitTestObject = splitTestObject(pp.readPropertyFromElements(testObject));
+        WebElement we = driver.findElement(By.linkText(splitTestObject[2]));
+
+        return we.getText();
+    }
+
+    public String getTextXpath(String testObject){
+        String[] splitTestObject = splitTestObject(pp.readPropertyFromElements(testObject));
+        WebElement we = driver.findElement(By.xpath(splitTestObject[2]));
+
+        return we.getText();
+    }
+
     public void hoverOverElement(String testObject){
         String[] splitTestObject = splitTestObject(pp.readPropertyFromElements(testObject));
         WebElement we = driver.findElement(By.xpath(splitTestObject[2]));

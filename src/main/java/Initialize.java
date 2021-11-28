@@ -9,10 +9,13 @@ import java.util.concurrent.TimeUnit;
 public class Initialize {
 
     public static String product = "Samsung";
+    public static String removeWarning = "Ürününüz listeden silindi.";
+    public static String wishListEmptyWarning = "İzlediğiniz bir ürün bulunmamaktadır.";
 
     protected static WebDriver driver;
     protected static ProjectProperties pp = new ProjectProperties();
     protected static CommonMethods CM = new CommonMethods();
+    protected static ValidateData VD = new ValidateData();
 
     @BeforeSuite
     public static void SetupURL(){
