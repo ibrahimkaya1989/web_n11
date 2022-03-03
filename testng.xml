@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <test thread-count="5" name="Test">
+        <!--<packages>
+            <package name="vodafone.api.tests.allMethods.checkCredential" />
+        </packages> -->
+
+        <classes>
+            <class name="TC01_N11_CASE" />
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
